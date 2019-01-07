@@ -41,9 +41,6 @@ RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
 # Change the web_root to laravel /var/www/html/public folder
 RUN sed -i -e "s/html/html\/public/g" /etc/apache2/sites-enabled/000-default.conf
 
-# Copy configuration file for php
-COPY docker/usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
-
 # Enable apache module rewrite
 RUN a2enmod rewrite
 
